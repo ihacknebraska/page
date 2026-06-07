@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">iHack Nebraska logo</title>
+  <desc id="desc">A shield-shaped cybersecurity mark with Nebraska initials and circuit lines.</desc>
+  <defs>
+    <linearGradient id="shield" x1="28" x2="152" y1="20" y2="164" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ef3340"/>
+      <stop offset="0.62" stop-color="#b91f2b"/>
+      <stop offset="1" stop-color="#071013"/>
+    </linearGradient>
+    <linearGradient id="line" x1="44" x2="140" y1="58" y2="130" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#72f7d4"/>
+      <stop offset="1" stop-color="#4da3ff"/>
+    </linearGradient>
+  </defs>
+  <path d="M90 14 148 34v45c0 39-20 70-58 91-38-21-58-52-58-91V34l58-20Z" fill="url(#shield)"/>
+  <path d="M90 28 136 44v35c0 31-15 55-46 73-31-18-46-42-46-73V44l46-16Z" fill="#0d151a" opacity=".92"/>
+  <path d="M55 111h23l13-41 12 63 13-42h29" fill="none" stroke="url(#line)" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <g fill="#f7fbff">
+    <path d="M60 62h11v52H60z"/>
+    <path d="M80 62h11v20h22V62h11v52h-11V92H91v22H80z"/>
+  </g>
+  <circle cx="144" cy="91" r="6" fill="#72f7d4"/>
+  <circle cx="54" cy="111" r="6" fill="#72f7d4"/>
+  <circle cx="104" cy="133" r="5" fill="#4da3ff"/>
+</svg>
