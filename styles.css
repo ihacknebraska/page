@@ -96,19 +96,6 @@ button:focus-visible {
   color: #fff;
 }
 
-.nav-toggle {
-  background: transparent;
-  border: 1px solid rgba(247, 251, 255, 0.42);
-  border-radius: 7px;
-  color: var(--ink);
-  cursor: pointer;
-  display: none;
-  font: inherit;
-  font-weight: 850;
-  min-height: 40px;
-  padding: 8px 14px;
-}
-
 .button {
   align-items: center;
   background: var(--red);
@@ -631,33 +618,11 @@ h3 {
 
 @media (max-width: 640px) {
   .site-header {
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
     position: static;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
   }
 
   .site-nav {
     display: none;
-  }
-
-  .site-nav.is-open {
-    align-items: stretch;
-    display: grid;
-    gap: 10px;
-    order: 3;
-    width: 100%;
-  }
-
-  .site-nav a {
-    border: 1px solid var(--line);
-    border-radius: 7px;
-    padding: 10px 12px;
   }
 
   .hero,
