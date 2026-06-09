@@ -1,0 +1,25 @@
+services:
+  traefik:
+    command:
+      - --api.dashboard=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+    ports:
+      - "80:80"
+
+  nginx:
+    labels:
+      traefik.http.routers.ihacknebraska.rule: Host(`${DOMAIN_NAME}`)
+      traefik.http.routers.ihacknebraska.entrypoints: web
+      traefik.http.routers.ihacknebraska.tls: "false"
+      traefik.http.routers.ihacknebraska.tls.certresolver: ""
+
+  wordpress:
+    environment:
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_HOME', 'http://${DOMAIN_NAME}');
+        define('WP_SITEURL', 'http://${DOMAIN_NAME}');
+        if (isset($$_SERVER['HTTP_X_FORWARDED_PROTO']) && $$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+          $$_SERVER['HTTPS'] = 'on';
+        }
