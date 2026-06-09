@@ -3,9 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Preview site for iHack Nebraska, a statewide cybersecurity and technology initiative for student clubs, practical education, local support, and workforce development.">
-  <title>iHack Nebraska Preview</title>
+  <meta name="description" content="iHack Nebraska helps students, schools, volunteers, and local organizations build practical technology and cybersecurity skills through clubs, workshops, service projects, and mentorship.">
+  <meta name="theme-color" content="#06090d">
+  <link rel="canonical" href="https://www.ihacknebraska.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="iHack Nebraska">
+  <meta property="og:title" content="iHack Nebraska">
+  <meta property="og:description" content="Building Nebraska's cyber talent pipeline through clubs, workshops, service projects, and mentorship.">
+  <meta property="og:url" content="https://www.ihacknebraska.com/">
+  <meta property="og:image" content="https://www.ihacknebraska.com/assets/hero-cyber.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="iHack Nebraska">
+  <meta name="twitter:description" content="Building Nebraska's cyber talent pipeline through clubs, workshops, service projects, and mentorship.">
+  <meta name="twitter:image" content="https://www.ihacknebraska.com/assets/hero-cyber.png">
+  <title>iHack Nebraska</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -13,7 +27,8 @@
       <img class="brand-logo" src="assets/logo.svg" alt="">
       <span>iHack Nebraska</span>
     </a>
-    <nav class="site-nav" aria-label="Primary navigation">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
       <a href="#mission">Mission</a>
       <a href="#programs">Programs</a>
       <a href="#offerings">Offerings</a>
@@ -39,7 +54,10 @@
         </div>
       </div>
       <div class="hero-visual" role="img" aria-label="Cybersecurity training lab with Nebraska-inspired network visuals">
-        <img src="assets/hero-cyber.png" alt="">
+        <picture>
+          <source type="image/webp" srcset="assets/hero-cyber-900.webp 900w, assets/hero-cyber-1400.webp 1400w" sizes="(max-width: 960px) calc(100vw - 44px), 46vw">
+          <img src="assets/hero-cyber.png" alt="" width="1807" height="870" decoding="async" fetchpriority="high">
+        </picture>
         <div class="signal-card">
           <span class="status-dot"></span>
           <strong>Students, professionals, businesses, and educators</strong>
@@ -126,20 +144,15 @@
       </div>
 
       <div class="tabs" aria-label="iHack Nebraska offerings">
-        <input type="radio" name="offering-tabs" id="tab-training" checked>
-        <input type="radio" name="offering-tabs" id="tab-range">
-        <input type="radio" name="offering-tabs" id="tab-business">
-        <input type="radio" name="offering-tabs" id="tab-community">
-
         <div class="tab-list" role="tablist" aria-label="Offerings">
-          <label for="tab-training" id="label-training" role="tab" aria-controls="panel-training">Training</label>
-          <label for="tab-range" id="label-range" role="tab" aria-controls="panel-range">Clubs and Labs</label>
-          <label for="tab-business" id="label-business" role="tab" aria-controls="panel-business">Business Readiness</label>
-          <label for="tab-community" id="label-community" role="tab" aria-controls="panel-community">Community Projects</label>
+          <button class="tab-button" type="button" id="tab-training" role="tab" aria-selected="true" aria-controls="panel-training">Training</button>
+          <button class="tab-button" type="button" id="tab-range" role="tab" aria-selected="false" aria-controls="panel-range" tabindex="-1">Clubs and Labs</button>
+          <button class="tab-button" type="button" id="tab-business" role="tab" aria-selected="false" aria-controls="panel-business" tabindex="-1">Business Readiness</button>
+          <button class="tab-button" type="button" id="tab-community" role="tab" aria-selected="false" aria-controls="panel-community" tabindex="-1">Community Projects</button>
         </div>
 
         <div class="tab-panels">
-          <article class="tab-panel panel-training" id="panel-training" role="tabpanel" aria-labelledby="label-training">
+          <article class="tab-panel" id="panel-training" role="tabpanel" aria-labelledby="tab-training">
             <div>
               <span class="track-label">For students and career builders</span>
               <h3>Hands-on cybersecurity education</h3>
@@ -152,7 +165,7 @@
             </ul>
           </article>
 
-          <article class="tab-panel panel-range" id="panel-range" role="tabpanel" aria-labelledby="label-range">
+          <article class="tab-panel" id="panel-range" role="tabpanel" aria-labelledby="tab-range" hidden>
             <div>
               <span class="track-label">For teams that learn by doing</span>
               <h3>Clubs, labs, and team challenges</h3>
@@ -165,7 +178,7 @@
             </ul>
           </article>
 
-          <article class="tab-panel panel-business" id="panel-business" role="tabpanel" aria-labelledby="label-business">
+          <article class="tab-panel" id="panel-business" role="tabpanel" aria-labelledby="tab-business" hidden>
             <div>
               <span class="track-label">For small businesses and non-profits</span>
               <h3>Digital resilience and readiness support</h3>
@@ -178,7 +191,7 @@
             </ul>
           </article>
 
-          <article class="tab-panel panel-community" id="panel-community" role="tabpanel" aria-labelledby="label-community">
+          <article class="tab-panel" id="panel-community" role="tabpanel" aria-labelledby="tab-community" hidden>
             <div>
               <span class="track-label">For builders, helpers, and organizers</span>
               <h3>Meetups, clubs, and service projects</h3>
