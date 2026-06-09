@@ -187,13 +187,14 @@ h3 {
 
 .hero-visual {
   align-self: stretch;
-  background: #0b1118;
-  border: 1px solid rgba(114, 247, 212, 0.2);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  min-height: 460px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  display: grid;
+  gap: 14px;
+  min-height: auto;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   width: 100%;
 }
@@ -205,16 +206,22 @@ h3 {
     linear-gradient(0deg, rgba(77, 163, 255, 0.1) 1px, transparent 1px);
   background-size: auto, 44px 44px, 44px 44px;
   content: "";
-  inset: 0;
-  position: absolute;
+  grid-area: 1 / 1;
+  min-height: clamp(320px, 40vw, 520px);
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-visual img {
-  height: 100%;
-  inset: 0;
+  border: 1px solid rgba(114, 247, 212, 0.2);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  grid-area: 1 / 1;
+  height: clamp(320px, 40vw, 520px);
   object-fit: cover;
   opacity: 0.96;
-  position: absolute;
+  position: relative;
   width: 100%;
 }
 
@@ -223,11 +230,9 @@ h3 {
   background: rgba(10, 16, 22, 0.82);
   border: 1px solid rgba(114, 247, 212, 0.24);
   border-radius: 8px;
-  bottom: 28px;
-  left: 28px;
+  max-width: none;
   padding: 20px 22px;
-  position: absolute;
-  right: 28px;
+  position: relative;
   z-index: 2;
 }
 
@@ -642,13 +647,19 @@ h3 {
   }
 
   .hero-visual {
-    min-height: 270px;
+    align-self: auto;
+  }
+
+  .hero-visual::after {
+    min-height: 250px;
+  }
+
+  .hero-visual img {
+    height: 250px;
   }
 
   .signal-card {
-    bottom: 18px;
-    left: 18px;
-    right: 18px;
+    padding: 18px;
   }
 
   .timeline li {
